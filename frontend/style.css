@@ -1,0 +1,150 @@
+/* General body */
+body {
+    font-family: ' Roboto';
+    background-color: #fef6e4;
+    /* light cream */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main heading */
+h1 {
+    background: #9e6fa2;
+    /* background */
+    color: #E0E1E5;
+    /* light text */
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 60px;
+    /* make it big */
+    text-align: center;
+    padding: 20px 40px;
+    border-radius: 20px;
+    /* text-shadow */
+    text-shadow:
+        -2px 2px #0E1B23,
+        -4px 4px #0E1B23,
+        -6px 6px #0E1B23,
+        -8px 8px #0E1B23,
+        -10px 10px #0E1B23,
+        -12px 12px #0E1B23;
+    /* smooth transition if hovered */
+    transition: transform 0.2s;
+}
+
+h1:hover {
+    transform: scale(1.05);
+}
+
+
+/* Input box */
+#taskInput {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+/* Add button */
+#taskForm button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4a94c3;
+    /* nice purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#taskForm button:hover {
+    background-color: #5eafe1;
+}
+
+/* Task list */
+#taskList {
+    list-style-type: none;
+    padding: 0;
+    width: 300px;
+}
+
+/* Individual tasks */
+#taskList li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Delete buttons */
+#taskList li button.delete {
+    background-color: #ff6b6b;
+    /* red */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+/* done buttons */
+#taskList li button.done {
+    background-color: #80f65f;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#taskList li button.done:hover {
+    background-color: #289d39;
+}
+
+#taskList li button.delete:hover {
+    background-color: #af1616;
+}
+
+//kitty animation
+const kitty=document.getElementById("kitty");
+let position=0;
+let speed=1; // pixels per frame
+let direction=-1; // 1 = right, -1 = left
+const maxRight=300; // adjust depending on your title width
+const minLeft=0;
+
+function moveKitty() {
+    position+=speed * direction;
+
+    // if kitty hits the edges, turn around
+    if (position >=maxRight) {
+        direction=-1;
+        kitty.style.transform="scaleX(1)"; // flip horizontally
+    }
+
+    else if (position <=minLeft) {
+        direction=1;
+        kitty.style.transform="scaleX(-1)"; //direction of the gif
+    }
+
+    kitty.style.left=position+"px";
+    requestAnimationFrame(moveKitty);
+}
+
+// Start the animation
+moveKitty();
+
+function reward(tasks) {
+    return tasks.filter()
+}
